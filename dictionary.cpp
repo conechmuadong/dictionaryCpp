@@ -32,9 +32,9 @@ void loadData()
     data.open("dataDictionary.txt",ios_base::in);
     if(data.fail())
     {
-        cout<<"Data file not found";
+        cout<<"Data file not found, program will creat a new empty file";
         data.open("dataDictionary.txt",ios_base::out);
-        data<<("Tu dien Anh - Viet \nEnglish - Vietnamese Dictionary \nDeveloped by NDH and Tran Hong Quan");
+        data<<("dictionary information/Tu dien Anh - Viet English - Vietnamese Dictionary Developed by NDH and Tran Hong Quan\n");
         //data.open("dataDictionary.txt",ios_base::in); //Dont do that, oke
     }
     vietEngDic.clear();

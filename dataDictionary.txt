@@ -1,9 +1,13 @@
-Tu dien Anh - Viet 
-English - Vietnamese Dictionary 
-Developed by NDH and Tran Hong Quan
+dictionary information/Tu dien Anh - Viet English - Vietnamese Dictionary Developed by NDH and Tran Hong Quan
+love/tinh yeu
+cat/con meo
+water/nuoc
 hello/xin chao
 monday/thu hai
 hi/xin chao/
 thursday/thu nam
 tuesday/thu ba
-love/yeu
+book/sach - dat cho
+class/cai kinh
+phone/dien thoai
+fire/lua
