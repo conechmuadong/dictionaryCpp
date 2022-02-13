@@ -35,7 +35,7 @@ void loadData()
         cout<<"Data file not found";
         data.open("dataDictionary.txt",ios_base::out);
         data<<("Tu dien Anh - Viet \nEnglish - Vietnamese Dictionary \nDeveloped by NDH and Tran Hong Quan");
-        data.open("dataDictionary.txt",ios_base::in);
+        //data.open("dataDictionary.txt",ios_base::in); //Dont do that, oke
     }
     vietEngDic.clear();
     dictionary*tempdic=new dictionary;
