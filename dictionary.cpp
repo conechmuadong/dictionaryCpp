@@ -3,12 +3,13 @@
 #include <vector>
 #include<fstream>
 #include<string.h>
+#include <stdlib.h>
 using namespace std;
 
 typedef struct dictionary
 {
-    char eng[100];
-    char viet[100];
+    string eng;
+    string viet;
 }dictionary;
 
 vector<dictionary> vietEngDic;
@@ -23,6 +24,7 @@ string normalizeInput(string input)
             *(temp+i)+=32;
     }
     input = temp;
+    delete temp;
     return input;
 }
 
@@ -41,9 +43,13 @@ void loadData()
     dictionary*tempdic=new dictionary;
     while (!data.eof())
     {
-        data.getline(tempdic->eng,100,'/');
-        data.getline(tempdic->viet,100);
+        char *temp = new char[100];
+        data.getline(temp,100,'/');
+        tempdic->eng = temp;
+        data.getline(temp,100);
+        tempdic->viet = temp;
         vietEngDic.push_back(*tempdic);
+        delete temp;
     }
     data.close();
     delete(tempdic);
@@ -51,16 +57,13 @@ void loadData()
 void addWord()
 {
     dictionary*tempDic=new dictionary;
-    string temp;
     cout<<endl<<"Word must not have space " "";
     cout<<"\nInput English word: ";
-    getline(cin,temp);
-    temp=normalizeInput(temp);
-    strcpy(tempDic->eng,temp.c_str());
+    getline(cin,tempDic->eng);
+    tempDic->eng=normalizeInput(tempDic->eng);
     cout<<"Input Vietnamese meaning: ";
-    getline(cin,temp);
-    temp=normalizeInput(temp);
-    strcpy(tempDic->viet,temp.c_str());
+    getline(cin,tempDic->viet);
+    tempDic->viet=normalizeInput(tempDic->viet);
     vietEngDic.push_back(*tempDic);
     ofstream data;
     data.open("dataDictionary.txt",ios_base::app|ios_base::out);
@@ -89,7 +92,7 @@ void searchWordinEnglish()
     {
         if(find==vietEngDic[i].eng)
         {
-            cout<<endl<<"\tEng: "<<find<<" - Viet: "<<vietEngDic[i].viet<<endl;
+            cout<<endl<<"\tEng: "<<find<<"\tViet: "<<vietEngDic[i].viet<<endl;
             cantfind=false;
         }
     }
@@ -145,7 +148,7 @@ void searchWordinVietnamese()
     {
         if(find==vietEngDic[i].viet)
         {
-            cout<<endl<<"\tViet: "<<find<<" - Eng: "<<vietEngDic[i].eng<<endl;
+            cout<<endl<<"\tViet: "<<find<<"\t Eng: "<<vietEngDic[i].eng<<endl;
             cantfind=false;
         }
     }
@@ -182,9 +185,8 @@ int main()
             cout<<"\n\tEnglish-Vietnamese dictionary using C/C++\n\tDeveloped by msfroggy and Tran Hong Quan";
             cout<<"\n\tPress any key to continue...";
             cin.ignore();
-            cin.ignore();
             system("cls");
-            break;
+            break; 
         case 0:
             cout<<"Exit";
             return 0;
