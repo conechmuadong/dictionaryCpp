@@ -89,9 +89,8 @@ void searchWordinEnglish()
     {
         if(find==vietEngDic[i].eng)
         {
-            cout<<endl<<"\tEng: "<<find<<"\tViet: "<<vietEngDic[i].viet<<endl;
+            cout<<endl<<"\tEng: "<<find<<" - Viet: "<<vietEngDic[i].viet<<endl;
             cantfind=false;
-            break;
         }
     }
     if(cantfind)
@@ -123,7 +122,7 @@ void deleteWord()
             return;
         }
     }
-    cout<<endl<<"Not found\n";
+    cout<<endl<<"\tNot found\n";
     cout<<"\tPress any key to continue";
     cin.ignore();
     system("cls");
@@ -146,9 +145,8 @@ void searchWordinVietnamese()
     {
         if(find==vietEngDic[i].viet)
         {
-            cout<<endl<<"\tViet: "<<find<<"\n\tEng: "<<vietEngDic[i].eng<<endl;
+            cout<<endl<<"\tViet: "<<find<<" - Eng: "<<vietEngDic[i].eng<<endl;
             cantfind=false;
-            break;
         }
     }
     if(cantfind)
