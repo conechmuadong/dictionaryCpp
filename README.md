@@ -3,7 +3,7 @@
 
 1. Search words' meanings
 2. Add word and meanings to data file
-3. Deleta word in data file
+3. Delete a word in data file
 
 # update 13/02/2022
 
